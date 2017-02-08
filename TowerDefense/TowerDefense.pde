@@ -7,7 +7,7 @@ int menu=0;
 ArrayList<GameObject> gameObjects = new ArrayList();
 ArrayList<Monster> monster = new ArrayList();
 Boolean gameOver = false;
-
+int highscore = 0;
 void setup()
 {
   size(500, 800);
@@ -25,13 +25,33 @@ void draw()
   noFill();
   switch(menu){
     case 0:
+      fill(255,50);
       textSize(40);
       text("Tower Defense", 110, 100);
-      rect(50,50,100,100);
-      if(overbtn(100,500,100,100))
+      rect(100,150,300,100);
+      text("Start",200,210);
+      if(overbtn(100,150,300,100))
       {
         if(mousePressed){
           menu=1;
+        }
+      }
+      textSize(40);
+      text("Exit",210,360);
+      rect(100,300,300,100);
+      if(overbtn(100,300,300,100))
+      {
+        if(mousePressed){
+          menu=2;
+        }
+      }
+      textSize(40);
+      rect(100,450,300,100);
+      text("LeadrBoard",140,510);
+      if(overbtn(100,450,300,100))
+      {
+        if(mousePressed){
+          menu=3;
         }
       }
       break;
@@ -68,8 +88,28 @@ void draw()
       }
       else
       {
-        text("GAME OVER", width/2-50, height/2);
+        fill(0,0,255);
+        text("GAME OVER", 160, height/2);
+        text(" Press B to go back",100,500);
+        if (keyPressed){
+          if(key =='b' ||key== 'B'){
+            menu = 0;
+          }
+        }
       }
+      break;
+    case 2:
+      exit();
+      break;
+    case 3:
+    fill(255);
+      text("High Score:"+highscore,130,300);
+       text(" Press B to go back",60,500);
+        if (keyPressed){
+          if(key =='b' ||key== 'B'){
+            menu = 0;
+          }
+        }
   } 
     
 }
