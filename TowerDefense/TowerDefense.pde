@@ -1,7 +1,6 @@
 boolean[] keys = new boolean[1000];
 float timeDelta = 1.0f / 60.0f;
 Player player;
-Laser laser;
 Monster m;
 float wait;
 
@@ -13,7 +12,6 @@ void setup()
 {
   size(500, 800);
   player = new Player(width / 2, (height/10) * 9, 0, 50, 'a', 'd', ' ');  
-  laser = new Laser();
   
     monster.add(new Monster());
   wait = 50;
@@ -57,7 +55,7 @@ void draw()
   }
   else
   {
-    text("GAME OVER", width/2, height/2);
+    text("GAME OVER", width/2-50, height/2);
   }
     
     

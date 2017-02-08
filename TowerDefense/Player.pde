@@ -42,7 +42,7 @@ class Player extends GameObject
     shape = createShape();
     shape.beginShape();
     shape.stroke(255);
-    shape.noFill();
+    shape.fill(255);
     shape.strokeWeight(2);
     shape.vertex(-radius, radius);
     shape.vertex(0, - radius);
@@ -54,12 +54,13 @@ class Player extends GameObject
   void render() // Overrides the method in the base class
   {
     
-    
+        fill(255);
+    textSize(30);
+    textMode(CENTER);
+    text("Score:" + score, (width/10)*1, (height/10)*1);
     pushMatrix(); // Stores the current transform
     translate(pos.x, pos.y);
-    text("Health: " + health, 30, 0);
-    text("Ammo: " + ammo, 30, 20);
-    text("Score:" + score, 30, 40);
+ 
     
     rotate(theta);    
     shape(shape, 0, 0);
@@ -68,7 +69,6 @@ class Player extends GameObject
   
   PVector force;
   float power = 100;
-  
   float fireRate = 2;
   float toPass = 1.0 / fireRate;
   float elapsed = toPass;

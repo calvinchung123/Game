@@ -18,9 +18,10 @@ class Bullet extends GameObject
     pushMatrix();
     translate(pos.x, pos.y);
     rotate(theta);
-    fill(0, 255 ,0);
+    fill(255, 0 ,0);
     rect(0, 0, 10, 10);
     popMatrix();
+    noFill();
   }
   
   void update()
