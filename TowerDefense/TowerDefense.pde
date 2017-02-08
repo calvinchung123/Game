@@ -3,7 +3,7 @@ float timeDelta = 1.0f / 60.0f;
 Player player;
 Monster m;
 float wait;
-
+int menu=0;
 ArrayList<GameObject> gameObjects = new ArrayList();
 ArrayList<Monster> monster = new ArrayList();
 Boolean gameOver = false;
@@ -15,7 +15,7 @@ void setup()
   
     monster.add(new Monster());
   wait = 50;
-
+  
 }
 
 void draw()
@@ -23,41 +23,43 @@ void draw()
   background(0);
   stroke(255);
   noFill();
-  if(gameOver == false)
-  {
-  for(int i = 0; i < gameObjects.size(); i++)
-  {
-    GameObject obj = gameObjects.get(i);
-    
-    obj.render();
-    obj.update();
-    
-  }
-  
-      player.update();
-    player.render();
-    if(keyPressed) {
-      if(key == ' ') {
+  switch(menu){
+    case 1:
+      if(gameOver == false)
+      {
+      for(int i = 0; i < gameObjects.size(); i++)
+      {
+        GameObject obj = gameObjects.get(i);
         
-      //laser.update();
-     // laser.display();
+        obj.render();
+        obj.update();
+        
       }
-    }
-    
-    for(int i = 0; i < monster.size(); i++) {
-      Monster m = monster.get(i);
-       m.update();
-       m.render();
       
-    }
-    
-    spawnMonster();
-  }
-  else
-  {
-    text("GAME OVER", width/2-50, height/2);
-  }
-    
+          player.update();
+        player.render();
+        if(keyPressed) {
+          if(key == ' ') {
+            
+          //laser.update();
+         // laser.display();
+          }
+        }
+        
+        for(int i = 0; i < monster.size(); i++) {
+          Monster m = monster.get(i);
+           m.update();
+           m.render();
+          
+        }
+        
+        spawnMonster();
+      }
+      else
+      {
+        text("GAME OVER", width/2-50, height/2);
+      }
+  } 
     
 }
 
