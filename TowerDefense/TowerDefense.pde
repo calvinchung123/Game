@@ -24,6 +24,17 @@ void draw()
   stroke(255);
   noFill();
   switch(menu){
+    case 0:
+      textSize(40);
+      text("Tower Defense", 110, 100);
+      rect(50,50,100,100);
+      if(overbtn(100,500,100,100))
+      {
+        if(mousePressed){
+          menu=1;
+        }
+      }
+      break;
     case 1:
       if(gameOver == false)
       {
@@ -63,6 +74,16 @@ void draw()
     
 }
 
+boolean overbtn(int x, int y, int width, int height)  {
+  if (mouseX >= x && mouseX <= x+width && 
+      mouseY >= y && mouseY <= y+height) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
 boolean checkKey(int k)
 {
   if (keys.length >= k) 
@@ -90,5 +111,7 @@ void spawnMonster() {
   else {
     wait --;
   }
+ 
+  
   
 }
