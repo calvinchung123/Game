@@ -12,7 +12,6 @@ class Player extends GameObject
   int ammo;
   int score;
   
-  // Make different keys control the ship!
   
   
   Player(float x, float y, float theta, float size, char left, char right, char fire)
@@ -63,27 +62,6 @@ class Player extends GameObject
     text("Score:" + score, 30, 40);
     
     rotate(theta);    
-    // Use lines
-    /*
-    stroke(255);
-    strokeWeight(2);
-    noFill();
-    line(pos.x - radius, pos.y + radius, pos.x, pos.y - radius);
-    line(pos.x, pos.y - radius, pos.x + radius, pos.y + radius);
-    line(pos.x + radius, pos.y + radius, pos.x, pos.y);
-    line(pos.x, pos.y, pos.x - radius, pos.y + radius);
-    
-    // Use beginShape
-    /*
-    beginShape();
-    vertex(x - radius, y + radius);
-    vertex(x, y - radius);
-    vertex(x + radius, y + radius);
-    vertex(x, y);
-    vertex(x - radius, y + radius);    
-    endShape();
-    */
-    // Use a PShape();
     shape(shape, 0, 0);
     popMatrix(); // Restore the transform
   }
