@@ -60,11 +60,13 @@ class Player extends GameObject
     text("Score:" + score, (width/10)*1, (height/10)*1);
     pushMatrix(); // Stores the current transform
     translate(pos.x, pos.y);
- 
-    
     rotate(theta);    
     shape(shape, 0, 0);
     popMatrix(); // Restore the transform
+  }
+  
+  int getScore() {
+    return score;
   }
   
   PVector force;

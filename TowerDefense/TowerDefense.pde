@@ -47,7 +47,7 @@ void draw()
       }
       textSize(40);
       rect(100,450,300,100);
-      text("LeadrBoard",140,510);
+      text("LeaderBoard",140,510);
       if(overbtn(100,450,300,100))
       {
         if(mousePressed){
@@ -90,10 +90,19 @@ void draw()
       {
         fill(0,0,255);
         text("GAME OVER", 160, height/2);
+        if(highscore < player.getScore())
+        {
+          highscore = player.getScore();
+        }
         text(" Press B to go back",100,500);
         if (keyPressed){
           if(key =='b' ||key== 'B'){
+            player.score=0;
+            monster.clear();
+            gameObjects.clear();
             menu = 0;
+            gameOver = false;
+            
           }
         }
       }
@@ -103,11 +112,12 @@ void draw()
       break;
     case 3:
     fill(255);
-      text("High Score:"+highscore,130,300);
+      text("High Score:"+ highscore,130,300);
        text(" Press B to go back",60,500);
         if (keyPressed){
           if(key =='b' ||key== 'B'){
             menu = 0;
+            gameOver = false;
           }
         }
   } 
